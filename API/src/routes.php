@@ -1,6 +1,9 @@
 <?php
 require_once "../src/controllers/PrendasController.php";
 require_once "../src/controllers/MarcasController.php";
+require_once "../src/controllers/VentasController.php";
+
+
 require_once "../src/utils/Auth.php";
 
 // ENDPOINT PRINCIPAL: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas
@@ -88,6 +91,41 @@ switch ($path) {
             default: echo "Método no implementado";
         }
         break;
+
+        
+        // Endpoint de ventas
+        case 'ventas':
+            $ventasController = new ventasController();
+            switch ($method) {
+                case 'GET':
+                    // Extraemos los parámetros de la consulta
+                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                    if ($id != "") {
+                        $ventasController->ObtenerPorId($id);
+                    } else {
+                        $ventasController->ObtenerTodos();
+                    }
+                    break;
+                case 'POST':
+                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/ventas
+                    $ventasController->crear();
+                    break;
+                case 'DELETE':
+                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/ventas?id=1
+                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                    $ventasController->eliminar($id);
+                    break;
+                case 'PUT':
+                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/ventas?id=1
+                    $id = isset($queryParams['id'])? $queryParams['id'] : null;
+                    $ventasController->actualizar($id);
+                    break;
+                default: echo "Método no implementado";
+            }
+            break;
+
+
+
     default: include "error/response.html";
 } 
 ?>

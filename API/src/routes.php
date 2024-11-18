@@ -1,5 +1,6 @@
 <?php
 require_once "../src/controllers/PrendasController.php";
+require_once "../src/controllers/MarcasController.php";
 require_once "../src/utils/Auth.php";
 
 // ENDPOINT PRINCIPAL: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas
@@ -22,38 +23,71 @@ $queryString = $_SERVER['QUERY_STRING'];
 parse_str($queryString, $queryParams);
 
 
-// Endpoint de prendas
-if ($path == "prendas") {
-    $prendasController = new PrendasController();
-    switch ($method) {
-        case 'GET':
-            // Extraemos los parámetros de la consulta
-            $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-            if ($id != "") {
-                $prendasController->ObtenerPorId($id);
-            } else {
-                $prendasController->ObtenerTodos();
-            }
-            break;
-        case 'POST':
-            // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas
-            $prendasController->crear();
-            break;
-        case 'DELETE':
-            // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas?id=1
-            $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-            $prendasController->eliminar($id);
-            break;
-        case 'PUT':
-            // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas?id=1
-            $id = isset($queryParams['id'])? $queryParams['id'] : null;
-            $prendasController->actualizar($id);
-            break;
-        default:
-            echo "Método no implementado";
-    }
-} else {
-    include "error/response.html";
-}
 
+switch ($path) {
+
+    // Endpoint de prendas
+    case 'prendas':
+        $prendasController = new PrendasController();
+        switch ($method) {
+            case 'GET':
+                // Extraemos los parámetros de la consulta
+                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                if ($id != "") {
+                    $prendasController->ObtenerPorId($id);
+                } else {
+                    $prendasController->ObtenerTodos();
+                }
+                break;
+            case 'POST':
+                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas
+                $prendasController->crear();
+                break;
+            case 'DELETE':
+                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas?id=1
+                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                $prendasController->eliminar($id);
+                break;
+            case 'PUT':
+                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas?id=1
+                $id = isset($queryParams['id'])? $queryParams['id'] : null;
+                $prendasController->actualizar($id);
+                break;
+            default: echo "Método no implementado";
+        }
+        break;
+
+
+        // Endpoint de marcas
+        case 'marcas':
+        $marcasController = new marcasController();
+        switch ($method) {
+            case 'GET':
+                // Extraemos los parámetros de la consulta
+                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                if ($id != "") {
+                    $marcasController->ObtenerPorId($id);
+                } else {
+                    $marcasController->ObtenerTodos();
+                }
+                break;
+            case 'POST':
+                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/marcas
+                $marcasController->crear();
+                break;
+            case 'DELETE':
+                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/marcas?id=1
+                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                $marcasController->eliminar($id);
+                break;
+            case 'PUT':
+                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/marcas?id=1
+                $id = isset($queryParams['id'])? $queryParams['id'] : null;
+                $marcasController->actualizar($id);
+                break;
+            default: echo "Método no implementado";
+        }
+        break;
+    default: include "error/response.html";
+} 
 ?>

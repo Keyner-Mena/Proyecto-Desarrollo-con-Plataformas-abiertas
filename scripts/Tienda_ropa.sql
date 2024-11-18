@@ -44,6 +44,14 @@ CREATE TABLE Detalle_Venta (
     FOREIGN KEY (ID_venta) REFERENCES Ventas(ID_venta)
 );
 
+-- Tabla Tokens (para gestionar la seguridad del API)
+CREATE TABLE tokens (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    token VARCHAR(255) NOT NULL,
+    expires_at DATETIME, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 USE TiendaRopa;
 -- Insertar datos en la tabla Marca
 INSERT INTO Marca (Nombre, Descripción, País_de_origen, Categoría, Contacto)
@@ -80,6 +88,20 @@ VALUES
 (3, 3, 1, 79.99),  -- 1 Chaqueta en la venta 3
 (4, 4, 1, 49.99),  -- 1 Vestido en la venta 3
 (5, 5, 3, 119.97); -- 3 Jeans en la venta 5
+
+-- Insertar datos en la tabla Tokens (para generar tokens de seguridad)
+INSERT INTO tokens (token, expires_at) VALUES
+('d3b07384d113edec49eaa6238ad5ff00', '2024-12-10 12:00:00'),
+('6f1ed002ab5595859014ebf0951522d9', '2024-12-11 12:00:00'),
+('c4ca4238a0b923820dcc509a6f75849b', '2024-12-12 12:00:00'),
+('98f13708210194c475687be6106a3b84', '2024-12-13 12:00:00'),
+('3c59dc048e885024e6b0a1c72b1b6d1f', '2024-12-14 12:00:00'),
+('aab3238922bcc25a6f606eb525ffdc56', '2024-12-15 12:00:00'),
+('7c222fb2927d828af22f592134e893a', '2024-12-16 12:00:00'),
+('16a7b23f2a6b9b27a94f374c96a9b70', '2024-12-17 12:00:00'),
+('2d2d1fe74f529f8bc7fbc946bde5cd7', '2024-12-18 12:00:00'),
+('0cc175b9c0f1b6a831c399e269772661', '2024-12-19 12:00:00');
+
 
 -- Eliminación de algún dato (eliminar una prenda)
 DELETE FROM detalle_venta WHERE `detalle_venta`.`ID_detalle` = 3

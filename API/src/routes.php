@@ -2,6 +2,8 @@
 require_once "../src/controllers/PrendasController.php";
 require_once "../src/controllers/MarcasController.php";
 require_once "../src/controllers/VentasController.php";
+require_once "../src/controllers/DetallesController.php";
+
 
 
 require_once "../src/utils/Auth.php";
@@ -123,6 +125,38 @@ switch ($path) {
                 default: echo "Método no implementado";
             }
             break;
+
+
+        // Endpoint de detalles
+        case 'detalles_ventas':
+            $detallesController = new detallesController();
+            switch ($method) {
+                case 'GET':
+                    // Extraemos los parámetros de la consulta
+                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                    if ($id != "") {
+                        $detallesController->ObtenerPorId($id);
+                    } else {
+                        $detallesController->ObtenerTodos();
+                    }
+                    break;
+                case 'POST':
+                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/detalles_ventas
+                    $detallesController->crear();
+                    break;
+                case 'DELETE':
+                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/detalles_ventas?id=1
+                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
+                    $detallesController->eliminar($id);
+                    break;
+                case 'PUT':
+                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/detalles_ventas?id=1
+                    $id = isset($queryParams['id'])? $queryParams['id'] : null;
+                    $detallesController->actualizar($id);
+                    break;
+                default: echo "Método no implementado";
+            }
+        break;
 
 
 

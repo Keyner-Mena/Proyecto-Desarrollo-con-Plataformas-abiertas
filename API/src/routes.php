@@ -4,12 +4,7 @@ require_once "../src/controllers/MarcasController.php";
 require_once "../src/controllers/VentasController.php";
 require_once "../src/controllers/DetallesController.php";
 
-
-
 require_once "../src/utils/Auth.php";
-
-// ENDPOINT PRINCIPAL: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas
-// ENDPOINT CON UN PARÁMETRO: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas?id=1
 
 // Crea una instancia de Auth
 $auth = new Auth();
@@ -28,138 +23,56 @@ $queryString = $_SERVER['QUERY_STRING'];
 parse_str($queryString, $queryParams);
 
 
+// Función para manejar la lógica de cada endpoint
+function manejarSolicitud($controller, $method, $queryParams) {
+    
+    // Extraemos los parámetros de la consulta
+    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
 
-switch ($path) {
-
-    // Endpoint de prendas
-    case 'prendas':
-        $prendasController = new PrendasController();
-        switch ($method) {
-            case 'GET':
-                // Extraemos los parámetros de la consulta
-                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                if ($id != "") {
-                    $prendasController->ObtenerPorId($id);
-                } else {
-                    $prendasController->ObtenerTodos();
-                }
-                break;
-            case 'POST':
-                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas
-                $prendasController->crear();
-                break;
-            case 'DELETE':
-                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas?id=1
-                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                $prendasController->eliminar($id);
-                break;
-            case 'PUT':
-                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/prendas?id=1
-                $id = isset($queryParams['id'])? $queryParams['id'] : null;
-                $prendasController->actualizar($id);
-                break;
-            default: echo "Método no implementado";
-        }
-        break;
-
-
-        // Endpoint de marcas
-        case 'marcas':
-        $marcasController = new marcasController();
-        switch ($method) {
-            case 'GET':
-                // Extraemos los parámetros de la consulta
-                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                if ($id != "") {
-                    $marcasController->ObtenerPorId($id);
-                } else {
-                    $marcasController->ObtenerTodos();
-                }
-                break;
-            case 'POST':
-                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/marcas
-                $marcasController->crear();
-                break;
-            case 'DELETE':
-                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/marcas?id=1
-                $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                $marcasController->eliminar($id);
-                break;
-            case 'PUT':
-                // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/marcas?id=1
-                $id = isset($queryParams['id'])? $queryParams['id'] : null;
-                $marcasController->actualizar($id);
-                break;
-            default: echo "Método no implementado";
-        }
-        break;
-
-        
-        // Endpoint de ventas
-        case 'ventas':
-            $ventasController = new ventasController();
-            switch ($method) {
-                case 'GET':
-                    // Extraemos los parámetros de la consulta
-                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                    if ($id != "") {
-                        $ventasController->ObtenerPorId($id);
-                    } else {
-                        $ventasController->ObtenerTodos();
-                    }
-                    break;
-                case 'POST':
-                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/ventas
-                    $ventasController->crear();
-                    break;
-                case 'DELETE':
-                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/ventas?id=1
-                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                    $ventasController->eliminar($id);
-                    break;
-                case 'PUT':
-                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/ventas?id=1
-                    $id = isset($queryParams['id'])? $queryParams['id'] : null;
-                    $ventasController->actualizar($id);
-                    break;
-                default: echo "Método no implementado";
+    // Endpoint sin parámetros: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE_DE_EMDPOINT
+    // Endpoint con parámetro: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE_DE_EMDPOINT?id=NUM_DE_ID
+    
+    switch ($method) {
+        case 'GET':
+            if ($id != "") {
+                $controller->ObtenerPorId($id);
+            } else {
+                $controller->ObtenerTodos();
             }
             break;
+        case 'POST':
+            $controller->crear();
+            break;
+        case 'DELETE':
+            $controller->eliminar($id);
+            break;
+        case 'PUT':
+            $controller->actualizar($id);
+            break;
+        default:
+            echo "Método no implementado";
+    }
+}
 
-
-        // Endpoint de detalles
-        case 'detalles_ventas':
-            $detallesController = new detallesController();
-            switch ($method) {
-                case 'GET':
-                    // Extraemos los parámetros de la consulta
-                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                    if ($id != "") {
-                        $detallesController->ObtenerPorId($id);
-                    } else {
-                        $detallesController->ObtenerTodos();
-                    }
-                    break;
-                case 'POST':
-                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/detalles_ventas
-                    $detallesController->crear();
-                    break;
-                case 'DELETE':
-                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/detalles_ventas?id=1
-                    $id = isset($queryParams['id']) ? $queryParams['id'] : null;
-                    $detallesController->eliminar($id);
-                    break;
-                case 'PUT':
-                    // http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/detalles_ventas?id=1
-                    $id = isset($queryParams['id'])? $queryParams['id'] : null;
-                    $detallesController->actualizar($id);
-                    break;
-                default: echo "Método no implementado";
-            }
+// Endpoints a controladores
+switch ($path) {
+    case 'prendas':
+        $prendasController = new PrendasController();
+        manejarSolicitud($prendasController, $method, $queryParams);
         break;
-
-
-
-    default: include "error/response.html";
-} 
+    case 'marcas':
+        $marcasController = new MarcasController();
+        manejarSolicitud($marcasController, $method, $queryParams);
+        break;
+    case 'ventas':
+        $ventasController = new VentasController();
+        manejarSolicitud($ventasController, $method, $queryParams);
+        break;
+    case 'detalles_ventas':
+        $detallesController = new DetallesController();
+        manejarSolicitud($detallesController, $method, $queryParams);
+        break;
+    default:
+        include "error/response.html";
+}
 ?>

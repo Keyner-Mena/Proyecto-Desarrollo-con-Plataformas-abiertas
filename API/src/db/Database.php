@@ -5,7 +5,7 @@ class Database {
 
     public static function connect() {
         if (self::$pdo === null) {
-            $host = '127.0.0.1:7703';  // cambiar a localhost
+            $host = 'localhost'; 
             $db   = 'tiendaropa'; 
             $user = 'root';
             $pass = '';

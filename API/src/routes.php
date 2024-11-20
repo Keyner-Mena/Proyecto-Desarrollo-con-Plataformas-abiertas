@@ -4,6 +4,7 @@ require_once "../src/controllers/MarcasController.php";
 require_once "../src/controllers/VentasController.php";
 require_once "../src/controllers/DetallesController.php";
 
+require_once "../src/controllers/VistasController.php";
 require_once "../src/utils/Auth.php";
 
 // Crea una instancia de Auth
@@ -54,8 +55,30 @@ function manejarSolicitud($controller, $method, $queryParams) {
     }
 }
 
+function manejarReportes($controller, $method, $reporte){
+    if ($method === 'GET') {    
+        
+        switch ($reporte) {
+            case 'top_5_marcas':
+                $controller->ObtenerTop5();
+                break;
+            case 'prendas_vendidas':
+                $controller->ObtenerPrendasvendidas();
+                break;
+            case 'marcas_con_ventas':
+                $controller->ObtenerMarcasconventas();
+                break;
+            default:
+                include "error/response.html";
+        }
+
+    }else {
+        echo "Método no implementado";
+    }
+}
+
 // Endpoints a controladores
-switch ($path) {
+switch ($segments[0]) {
     case 'prendas':
         $prendasController = new PrendasController();
         manejarSolicitud($prendasController, $method, $queryParams);
@@ -71,6 +94,14 @@ switch ($path) {
     case 'detalles_ventas':
         $detallesController = new DetallesController();
         manejarSolicitud($detallesController, $method, $queryParams);
+        break;
+    case 'reportes':
+        if (isset($segments[1])) {
+            $reportesController = new VistasController();
+            manejarReportes($reportesController, $method, $segments[1]);
+        }else {
+            echo "Debe indicar que reporte desea ver";
+        }
         break;
     default:
         include "error/response.html";

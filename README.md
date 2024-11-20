@@ -12,5 +12,21 @@
 
 ![Diagrama BD](Diagrama.png "Diagrama BD")
 
+Obtener todas las prendas:
+ Método: GET
+URL: http://localhost/api/src/models/Prendas.php
 
 
+Obtener todas las ventas:
+ Método: GET
+URL: http://localhost/api/src/models/Ventas.php
+
+
+Obtener todas las marcas:
+ Método: GET
+URL: http://localhost/api/src/models/Marcas.php
+
+
+Obtener todos las detalle_ventas:
+ Método: GET
+URL: http://localhost/api/src/models/Detalle_ventas.php

@@ -1,7 +1,7 @@
 <?php
     require_once '../src/db/Database.php';
 
-    class Vistas {
+    class Reportes {
 
         private $db;
 

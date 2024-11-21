@@ -4,7 +4,7 @@ require_once "../src/controllers/MarcasController.php";
 require_once "../src/controllers/VentasController.php";
 require_once "../src/controllers/DetallesController.php";
 
-require_once "../src/controllers/VistasController.php";
+require_once "../src/controllers/ReportesController.php";
 require_once "../src/utils/Auth.php";
 
 // Crea una instancia de Auth
@@ -96,7 +96,7 @@ switch ($segments[0]) {
         break;
     case 'reportes':
         if (isset($segments[1])) {
-            $reportesController = new VistasController();
+            $reportesController = new ReportesController();
             manejarReportes($reportesController, $method, $segments[1]);
         }else {
             echo "Debe indicar que reporte desea ver";

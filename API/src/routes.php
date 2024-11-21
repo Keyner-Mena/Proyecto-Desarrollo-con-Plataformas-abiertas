@@ -9,8 +9,7 @@ require_once "../src/utils/Auth.php";
 
 // Crea una instancia de Auth
 $auth = new Auth();
-// Descomentar para activar la seguridad por autenticación
-//$auth->verificarToken();
+$auth->verificarToken();
 
 // Lógica de la API
 $method = $_SERVER['REQUEST_METHOD'];

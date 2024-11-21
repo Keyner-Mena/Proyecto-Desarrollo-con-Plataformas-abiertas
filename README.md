@@ -26,7 +26,7 @@
 
 #### Tokens para ingresar y su fecha de vencimiento:
 
-```json
+```
 ("d3b07384d113edec49eaa6238ad5ff00": "2024-12-10 12:00:00")
 
 ("6f1ed002ab5595859014ebf0951522d9": "2024-12-11 12:00:00")

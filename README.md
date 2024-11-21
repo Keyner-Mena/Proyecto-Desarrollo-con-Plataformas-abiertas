@@ -27,25 +27,25 @@
 #### Tokens para ingresar y su fecha de vencimiento:
 
 ```json
-("d3b07384d113edec49eaa6238ad5ff00": '2024-12-10 12:00:00')
+("d3b07384d113edec49eaa6238ad5ff00": "2024-12-10 12:00:00")
 
-("6f1ed002ab5595859014ebf0951522d9": '2024-12-11 12:00:00')
+("6f1ed002ab5595859014ebf0951522d9": "2024-12-11 12:00:00")
 
-("c4ca4238a0b923820dcc509a6f75849b": '2024-12-12 12:00:00')
+("c4ca4238a0b923820dcc509a6f75849b": "2024-12-12 12:00:00")
 
-("98f13708210194c475687be6106a3b84": '2024-12-13 12:00:00')
+("98f13708210194c475687be6106a3b84": "2024-12-13 12:00:00")
 
-("3c59dc048e885024e6b0a1c72b1b6d1f": '2024-12-14 12:00:00')
+("3c59dc048e885024e6b0a1c72b1b6d1f":" 2024-12-14 12:00:00")
 
-("aab3238922bcc25a6f606eb525ffdc56": '2024-12-15 12:00:00')
+("aab3238922bcc25a6f606eb525ffdc56": "2024-12-15 12:00:00")
 
-("7c222fb2927d828af22f592134e893a": '2024-12-16 12:00:00')
+("7c222fb2927d828af22f592134e893a": "2024-12-16 12:00:00")
 
-("16a7b23f2a6b9b27a94f374c96a9b70": '2024-12-17 12:00:00')
+("16a7b23f2a6b9b27a94f374c96a9b70": "2024-12-17 12:00:00")
 
-("2d2d1fe74f529f8bc7fbc946bde5cd7": '2024-12-18 12:00:00')
+("2d2d1fe74f529f8bc7fbc946bde5cd7": "2024-12-18 12:00:00")
 
-("0cc175b9c0f1b6a831c399e269772661": '2024-12-19 12:00:00')
+("0cc175b9c0f1b6a831c399e269772661": "2024-12-19 12:00:00")
 ```
 
 ---
@@ -192,13 +192,24 @@
 1. Obtener vista del top 5 marcas más vendidas:
 
    - Método: GET
-   - URL: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/top_5_marcas
+   - URL:
+
+   ```http
+   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/top_5_marcas
+   ```
 
 2. Obtener vista de las prendas vendidas y su stock:
 
    - Método: GET
-   - URL: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/prendas_vendidas
+   - URL:
+
+   ```http
+   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/prendas_vendidas
+   ```
 
 3. Obtener vista de marcas con ventas:
    - Método: GET
-   - URL: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/marcas_con_ventas'
+   - URL:
+   ```http
+   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/marcas_con_ventas
+   ```

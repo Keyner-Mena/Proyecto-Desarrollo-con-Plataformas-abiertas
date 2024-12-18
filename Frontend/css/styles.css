@@ -19,6 +19,19 @@ h3 {
   color: #3498db !important;
 }
 
+.dropdown-menu {
+  background-color: #25292dfa;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #343a40;
+  color: white;
+}
+
 .container {
   margin-top: 30px;
   margin-bottom: 30px;

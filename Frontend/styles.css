@@ -1,0 +1,107 @@
+body {
+  font-family: sans-serif;
+  background: #f4f4f9;
+  color: #333;
+}
+
+h2,
+h3 {
+  color: #2c3e50;
+}
+
+#barra_principal {
+  background-color: #171b20;
+  color: white !important;
+  padding: 5px 0px;
+}
+
+.nav-link:hover {
+  color: #3498db !important;
+}
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+section {
+  margin-top: 20px;
+  padding: 50px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.seccion_secundaria {
+  display: none;
+}
+
+th {
+  background-color: #21282e !important;
+  color: #fff !important;
+}
+
+.table-striped {
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-striped th,
+.table-striped td {
+  padding: 15px;
+  text-align: center;
+}
+
+fieldset {
+  border: 2px solid #dee2e6;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 15px;
+  position: relative;
+}
+
+fieldset legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0 10px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  background: #fff;
+  width: auto;
+  white-space: nowrap;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form .form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+form .btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+form .btn-primary:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}

@@ -175,7 +175,12 @@
             </div>
             <div class="mb-2">
               <label for="marca" class="form-label">Marca:</label>
-              <select id="marca" name="marca" class="form-select"></select>
+              <select
+                id="marca"
+                name="marca"
+                class="form-select"
+                required
+              ></select>
             </div>
             <div class="mb-2">
               <label for="material" class="form-label">Material:</label>
@@ -259,6 +264,7 @@
                 id="update-marca"
                 name="marca"
                 class="form-select"
+                required
               ></select>
             </div>
             <div class="mb-2">
@@ -338,6 +344,139 @@
           </thead>
           <tbody></tbody>
         </table>
+        <br />
+
+        <!-- Form agregar marcas -->
+        <form id="agregar-marca-form">
+          <fieldset>
+            <legend>Agregar Nueva Marca</legend>
+            <br />
+            <div class="mb-2">
+              <label for="nombre_marca" class="form-label">Nombre:</label>
+              <input
+                type="text"
+                id="nombre_marca"
+                name="nombre_marca"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="descripcion" class="form-label">Descripción:</label>
+              <input
+                type="text"
+                id="descripcion"
+                name="descripcion"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="pais" class="form-label">País de origen:</label>
+              <input
+                type="text"
+                id="pais"
+                name="pais"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="categoria" class="form-label">Categoría:</label>
+              <input
+                type="text"
+                id="categoria"
+                name="categoria"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="contacto" class="form-label">Contacto:</label>
+              <input
+                type="email"
+                id="contacto"
+                name="contacto"
+                class="form-control"
+                required
+              />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Agregar Marca</button>
+          </fieldset>
+        </form>
+        <br />
+        <!-- Form actualizar marcas -->
+        <form id="update-marca-form" class="seccion_secundaria">
+          <fieldset>
+            <legend>Actualizar Marca</legend>
+            <br />
+            <input type="hidden" id="update-id_marca" name="id_marca" />
+
+            <div class="mb-2">
+              <label for="update-nombre_marca" class="form-label"
+                >Nombre:</label
+              >
+              <input
+                type="text"
+                id="update-nombre_marca"
+                name="nombre_marca"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="update-descripcion" class="form-label"
+                >Descripción:</label
+              >
+              <input
+                type="text"
+                id="update-descripcion"
+                name="descripcion"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="update-pais" class="form-label"
+                >País de origen:</label
+              >
+              <input
+                type="text"
+                id="update-pais"
+                name="pais"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="update-categoria" class="form-label"
+                >Categoría:</label
+              >
+              <input
+                type="text"
+                id="update-categoria"
+                name="categoria"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="update-contacto" class="form-label">Contacto:</label>
+              <input
+                type="email"
+                id="update-contacto"
+                name="contacto"
+                class="form-control"
+                required
+              />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">
+              Actualizar Marca
+            </button>
+          </fieldset>
+        </form>
       </section>
 
       <!-- Sección ventas -->
@@ -355,6 +494,121 @@
           </thead>
           <tbody></tbody>
         </table>
+        <br />
+
+        <!-- Form agregar venta -->
+        <form id="agregar-venta-form">
+          <fieldset>
+            <legend>Agregar Nueva Venta</legend>
+            <br />
+            <div class="mb-2">
+              <label for="fecha_venta" class="form-label"
+                >Fecha de la venta:</label
+              >
+              <input
+                type="datetime-local"
+                id="fecha_venta"
+                name="fecha_venta"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="metodo_de_pago" class="form-label"
+                >Método de Pago:</label
+              >
+              <select
+                id="metodo_de_pago"
+                name="metodo_de_pago"
+                class="form-select"
+                required
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                <option value="Tarjeta de débito">Tarjeta de débito</option>
+                <option value="Transferencia bancaria">
+                  Transferencia bancaria
+                </option>
+                <option value="Efectivo">Efectivo</option>
+                <option value="PayPal">PayPal</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="total_venta" class="form-label"
+                >Total de la venta:</label
+              >
+              <input
+                type="number"
+                id="total_venta"
+                name="total_venta"
+                class="form-control"
+                step="0.01"
+                required
+              />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Agregar Venta</button>
+          </fieldset>
+        </form>
+        <br />
+
+        <!-- Form actualizar venta -->
+        <form id="update-venta-form" class="seccion_secundaria">
+          <fieldset>
+            <legend>Actualizar Venta</legend>
+            <br />
+            <input type="hidden" id="update-id_venta" name="id_venta" />
+            <div class="mb-2">
+              <label for="update-fecha_venta" class="form-label"
+                >Fecha de la venta:</label
+              >
+              <input
+                type="datetime-local"
+                id="update-fecha_venta"
+                name="fecha_venta"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="update-metodo_de_pago" class="form-label"
+                >Método de Pago:</label
+              >
+              <select
+                id="update-metodo_de_pago"
+                name="metodo_de_pago"
+                class="form-select"
+                required
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                <option value="Tarjeta de débito">Tarjeta de débito</option>
+                <option value="Transferencia bancaria">
+                  Transferencia bancaria
+                </option>
+                <option value="Efectivo">Efectivo</option>
+                <option value="PayPal">PayPal</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="update-total_venta" class="form-label"
+                >Total de la venta:</label
+              >
+              <input
+                type="number"
+                id="update-total_venta"
+                name="total_venta"
+                class="form-control"
+                step="0.01"
+                required
+              />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">
+              Actualizar Venta
+            </button>
+          </fieldset>
+        </form>
       </section>
 
       <!-- Sección de detalles de venta -->
@@ -373,6 +627,121 @@
           </thead>
           <tbody></tbody>
         </table>
+        <br />
+
+        <!-- Form agregar detalle de venta -->
+        <form id="agregar-detalle-venta-form">
+          <fieldset>
+            <legend>Agregar Nuevo Detalle de Venta</legend>
+            <br />
+            <div class="mb-2">
+              <label for="d-id_prenda" class="form-label"
+                >ID de la prenda:</label
+              >
+              <select
+                id="d-id_prenda"
+                name="d-id_prenda"
+                class="form-select"
+              ></select>
+            </div>
+            <div class="mb-2">
+              <label for="d-id_venta" class="form-label">ID de la venta:</label>
+              <select
+                id="d-id_venta"
+                name="d-id_venta"
+                class="form-select"
+              ></select>
+            </div>
+            <div class="mb-2">
+              <label for="cantidad" class="form-label">Cantidad:</label>
+              <input
+                type="number"
+                id="cantidad"
+                name="cantidad"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="subtotal" class="form-label"
+                >Subtotal de la venta:</label
+              >
+              <input
+                type="number"
+                id="subtotal"
+                name="subtotal"
+                class="form-control"
+                step="0.01"
+                required
+              />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">
+              Agregar Detalle de Venta
+            </button>
+          </fieldset>
+        </form>
+        <br />
+
+        <!-- Form actualizar detalle de venta -->
+        <form id="update-detalle-venta-form" class="seccion_secundaria">
+          <fieldset>
+            <legend>Actualizar Detalle de Venta</legend>
+            <br />
+            <input
+              type="hidden"
+              id="update-id_detalle_venta"
+              name="id_detalle_venta"
+            />
+            <div class="mb-2">
+              <label for="update-d-id_prenda" class="form-label"
+                >ID de la prenda:</label
+              >
+              <select
+                id="update-d-id_prenda"
+                name="d-id_prenda"
+                class="form-select"
+              ></select>
+            </div>
+            <div class="mb-2">
+              <label for="update-d-id_venta" class="form-label"
+                >ID de la venta:</label
+              >
+              <select
+                id="update-d-id_venta"
+                name="d-id_venta"
+                class="form-select"
+              ></select>
+            </div>
+            <div class="mb-2">
+              <label for="update-cantidad" class="form-label">Cantidad:</label>
+              <input
+                type="number"
+                id="update-cantidad"
+                name="cantidad"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="update-subtotal" class="form-label"
+                >Subtotal de la venta:</label
+              >
+              <input
+                type="number"
+                id="update-subtotal"
+                name="subtotal"
+                class="form-control"
+                step="0.01"
+                required
+              />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">
+              Actualizar Detalle de Venta
+            </button>
+          </fieldset>
+        </form>
       </section>
 
       <!-- Apartado de reportes -->

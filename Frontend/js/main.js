@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Rellenar Tablas
   ObtenerPrendas(API_URL);
   ObtenerMarcas(API_URL);
   ObtenerVentas(API_URL);
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ObtenerReportePrendas(API_URL);
   ObtenerReporteMarcas(API_URL);
 
+  // Evento para agregar una prenda
   document
     .getElementById("agregar-prenda-form")
     .addEventListener("submit", function (event) {
@@ -49,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reset();
     });
 
+  // Evento para actualizar una prenda
   document
     .getElementById("update-prenda-form")
     .addEventListener("submit", function (event) {
@@ -67,9 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Precio: parseInt(form.precio.value),
         Stock: parseInt(form.stock.value),
       };
-
       ActualizarPrenda(data, API_URL);
-
       // reiniciar el formulario y ocultarlo.
       form.reset();
       form.classList.add("seccion_secundaria");

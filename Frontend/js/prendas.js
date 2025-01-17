@@ -175,6 +175,7 @@ function mostrarFormActualizarPrenda(
 ) {
   const FormActualizar = document.getElementById("update-prenda-form");
 
+  //Muestra el form con los datos seleccionados
   FormActualizar.querySelector("#update-id_prenda").value =
     id_prenda_actualizar;
   FormActualizar.querySelector("#update-tipo_de_prenda").value = tipoPrenda;
@@ -185,6 +186,7 @@ function mostrarFormActualizarPrenda(
   FormActualizar.querySelector("#update-precio").value = precio;
   FormActualizar.querySelector("#update-stock").value = stock;
 
+  // Muestra el form al usuario
   FormActualizar.classList.remove("seccion_secundaria");
   FormActualizar.scrollIntoView();
 }

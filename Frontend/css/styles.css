@@ -55,6 +55,10 @@ section h2 {
   display: none;
 }
 
+.table-responsive {
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+}
+
 th {
   background-color: #21282e !important;
   color: #fff !important;
@@ -117,4 +121,10 @@ form .form-control {
 .btn-primary:hover {
   background-color: #2980b9;
   border-color: #2980b9;
+}
+
+@media (max-width: 480px) {
+  legend {
+    font-size: 4.7vw !important;
+  }
 }

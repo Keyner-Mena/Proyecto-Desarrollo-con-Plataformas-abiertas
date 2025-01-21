@@ -52,6 +52,70 @@ CREATE TABLE tokens (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- TRIGGERS para mantener la consistencia de los valores de la tabla ventas y detalles ventas
+DELIMITER $$
+
+CREATE TRIGGER ActualizarTotalVenta
+AFTER INSERT ON Detalle_Venta
+FOR EACH ROW
+BEGIN
+    UPDATE Ventas
+    SET Total_venta = (
+        SELECT SUM(Subtotal)
+        FROM Detalle_Venta
+        WHERE ID_venta = NEW.ID_venta
+    )
+    WHERE ID_venta = NEW.ID_venta;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER ActualizarTotalVentaUpdate
+AFTER UPDATE ON Detalle_Venta
+FOR EACH ROW
+BEGIN
+    -- Recalcula para la venta anterior (si cambió el ID_venta)
+    IF OLD.ID_venta != NEW.ID_venta THEN
+        UPDATE Ventas
+        SET Total_venta = (
+            SELECT SUM(Subtotal)
+            FROM Detalle_Venta
+            WHERE ID_venta = OLD.ID_venta
+        )
+        WHERE ID_venta = OLD.ID_venta;
+    END IF;
+
+    -- Recalcula para la venta actual
+    UPDATE Ventas
+    SET Total_venta = (
+        SELECT SUM(Subtotal)
+        FROM Detalle_Venta
+        WHERE ID_venta = NEW.ID_venta
+    )
+    WHERE ID_venta = NEW.ID_venta;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER ActualizarTotalVentaDelete
+AFTER DELETE ON Detalle_Venta
+FOR EACH ROW
+BEGIN
+    UPDATE Ventas
+    SET Total_venta = (
+        SELECT SUM(Subtotal)
+        FROM Detalle_Venta
+        WHERE ID_venta = OLD.ID_venta
+    )
+    WHERE ID_venta = OLD.ID_venta;
+END $$
+
+DELIMITER ;
+
 USE TiendaRopa;
 -- Insertar datos en la tabla Marca
 INSERT INTO Marca (Nombre, Descripción, País_de_origen, Categoría, Contacto)

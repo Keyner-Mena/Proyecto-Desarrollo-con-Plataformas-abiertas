@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = {
         Fecha_venta: form.fecha_venta.value,
         Metodo_pago: form.metodo_de_pago.value,
-        Total_venta: form.total_venta.value,
+        Total_venta: 0,
       };
       Guardar(data, API_URL, "ventas");
       form.reset();

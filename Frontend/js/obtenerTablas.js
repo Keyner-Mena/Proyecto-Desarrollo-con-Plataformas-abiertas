@@ -82,13 +82,13 @@ export function ObtenerPrendas(API_URL) {
             // Encuentra la fila del botón clickeado
             const fila = event.target.closest("tr");
 
-            const tipoPrenda = fila.cells[0].textContent; // Columna 1
-            const idMarca = fila.cells[1].textContent; // Columna 2
-            const material = fila.cells[2].textContent; // Columna 3
-            const talla = fila.cells[3].textContent; // Columna 4
-            const color = fila.cells[4].textContent; // Columna 5
-            const precio = fila.cells[5].textContent; // Columna 6
-            const stock = fila.cells[6].textContent; // Columna 7
+            const tipoPrenda = fila.cells[1].textContent; // Columna 1
+            const idMarca = fila.cells[2].textContent; // Columna 2
+            const material = fila.cells[3].textContent; // Columna 3
+            const talla = fila.cells[4].textContent; // Columna 4
+            const color = fila.cells[5].textContent; // Columna 5
+            const precio = fila.cells[6].textContent; // Columna 6
+            const stock = fila.cells[7].textContent; // Columna 7
 
             mostrarFormActualizarPrenda(
               id_prenda_actualizar,

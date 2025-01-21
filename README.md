@@ -1,26 +1,52 @@
-# <p style="color: rgb(93, 173, 226);"> Proyecto de Desarrollo con Plataformas abiertas </p>
+# <p style="color: rgb(93, 173, 226);"> Proyecto CRUD </p>
 
-## 👥 Integrantes: Keyner Mena y Kimberly Quesada.
+### Descripción
 
-## 📄1er Avance:
+Este proyecto consiste en un CRUD de la base de datos que se puede ver a continuación en la imagen,
+esta se conecta a traves de PHP para crear la API de la BD, ademas esta se encuentra organizada por modelos y
+controladores los cuales están realizados igualmente en PHP y permiten manejar las 4 operaciones básicas del CRUD.
 
-### Descripción del Avance 1
-
-> Crear una base de datos para una tienda de ropa, donde contemple marcas, prendas y ventas.
+Ademas de esto la API esta conectada con el Frontend, a traves de JS para poder visualizar, agregar, actualizar y eliminar datos directamente en el HTML.
 
 ### Diagrama:
 
 ![Diagrama BD](Diagrama.png "Diagrama BD")
 
-## 📄2do Avance:
+El tema/ámbito de la BD se enfoca en una tienda de ropa, con tablas como Ventas, Prendas, Marcas...
+Por otro lado la tabla Tokens esta orientada a almacenar los tokens para poder acceder a la BD.
 
-### Descripción del Avance 2
+Resumen de tecnologias utilizadas:
 
-> Crear una API usando la estructura de carpetas y archivos correspondiente
+- PHPMyAdmin
+- PHP
+- JS
+- HTML
+- CSS
+- Bootstrap
 
 ### ¿Como usar? Y Endpoints
 
-#### Endpoint principal/base:
+Es importante contar con XAMPP para ejecutar la web y poder acceder a la BD a traves de PHPMyAdmin.
+
+Pasos:
+
+1. Ejecutar script SQL `Tienda_ropa.sql`
+2. Clonar repositorio en htdocs de XAMPP
+3. Comprobar y ajustar datos del archivo en: API/src/db/Database.php
+4. Ingresar al Frontend a traves de una URL similar a: `http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/Frontend/index.html`
+
+> [!NOTE]
+> Antes de ingresar al Frontend activar lo siguiente:
+>
+> ![img](./image-xampp.png)
+
+Al ingresar se debería mostrar esto:
+![interfaz](image-interfaz.png)
+A partir de aqui se puede acceder al CRUD y sus funciones.
+
+---
+
+#### Endpoint principal/base de la API:
 
 `http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/`
 

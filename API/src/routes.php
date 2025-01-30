@@ -29,8 +29,8 @@ function manejarSolicitud($controller, $method, $queryParams) {
     // Extraemos los parámetros de la consulta
     $id = isset($queryParams['id']) ? $queryParams['id'] : null;
 
-    // Endpoint sin parámetros: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE_DE_EMDPOINT
-    // Endpoint con parámetro: http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE_DE_EMDPOINT?id=NUM_DE_ID
+    // Endpoint sin parámetros: http://localhost/CRUD-JS-PHP/API/public/index.php/NOMBRE_DE_EMDPOINT
+    // Endpoint con parámetro: http://localhost/CRUD-JS-PHP/API/public/index.php/NOMBRE_DE_EMDPOINT?id=NUM_DE_ID
     
     switch ($method) {
         case 'GET':

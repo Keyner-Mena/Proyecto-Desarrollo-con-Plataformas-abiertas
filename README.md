@@ -33,7 +33,7 @@ Pasos:
 1. Ejecutar script SQL `Tienda_ropa.sql`
 2. Clonar repositorio en htdocs de XAMPP
 3. Comprobar y ajustar datos del archivo en: API/src/db/Database.php
-4. Ingresar al Frontend a traves de una URL similar a: `http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/Frontend/index.html`
+4. Ingresar al Frontend a traves de una URL similar a: `http://localhost/CRUD-JS-PHP/Frontend/index.html`
 
 > [!NOTE]
 > Antes de ingresar al Frontend activar lo siguiente:
@@ -48,7 +48,7 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
 
 #### Endpoint principal/base de la API:
 
-`http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/`
+`http://localhost/CRUD-JS-PHP/API/public/index.php/`
 
 #### Tokens para ingresar y su fecha de vencimiento:
 
@@ -86,7 +86,7 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
    - Descripción: Obtiene una lista de todos los datos disponibles en la tabla.
 
    ```http
-   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE-MODELO
+   GET http://localhost/CRUD-JS-PHP/API/public/index.php/NOMBRE-MODELO
    ```
 
 ---
@@ -97,7 +97,7 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
    - Descripción: Obtiene la información específica usando un ID.
 
    ```http
-   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE-MODELO?id=2
+   GET http://localhost/CRUD-JS-PHP/API/public/index.php/NOMBRE-MODELO?id=2
    ```
 
 ---
@@ -108,7 +108,7 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
    - Descripción: Elimina un dato específico de la base de datos.
 
    ```http
-   DELETE http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE-MODELO?id=2
+   DELETE http://localhost/CRUD-JS-PHP/API/public/index.php/NOMBRE-MODELO?id=2
    ```
 
 ---
@@ -119,7 +119,7 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
    - Descripción: Añade un dato a la base de datos.
 
    ```http
-   POST http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE-MODELO?id=3
+   POST http://localhost/CRUD-JS-PHP/API/public/index.php/NOMBRE-MODELO?id=3
    ```
 
    Cuerpo de la petición JSON:
@@ -169,7 +169,7 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
    - Descripción: Actualiza un dato de la base de datos.
 
    ```http
-   PUT http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/NOMBRE-MODELO
+   PUT http://localhost/CRUD-JS-PHP/API/public/index.php/NOMBRE-MODELO
    ```
 
    Cuerpo de la petición JSON:
@@ -221,7 +221,7 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
    - URL:
 
    ```http
-   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/top_5_marcas
+   GET http://localhost/CRUD-JS-PHP/API/public/index.php/reportes/top_5_marcas
    ```
 
 2. Obtener vista de las prendas vendidas y su stock:
@@ -230,12 +230,12 @@ A partir de aqui se puede acceder al CRUD y sus funciones.
    - URL:
 
    ```http
-   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/prendas_vendidas
+   GET http://localhost/CRUD-JS-PHP/API/public/index.php/reportes/prendas_vendidas
    ```
 
 3. Obtener vista de marcas con ventas:
    - Método: GET
    - URL:
    ```http
-   GET http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/reportes/marcas_con_ventas
+   GET http://localhost/CRUD-JS-PHP/API/public/index.php/reportes/marcas_con_ventas
    ```

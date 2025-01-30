@@ -13,8 +13,7 @@ import {
 
 import { Guardar, Actualizar } from "./metodos.js";
 
-const API_URL =
-  "http://localhost/Proyecto-Desarrollo-con-Plataformas-abiertas/API/public/index.php/";
+const API_URL = "http://localhost/CRUD-JS-PHP/API/public/index.php/";
 
 document.addEventListener("DOMContentLoaded", () => {
   // eventos para el menu de navegación
